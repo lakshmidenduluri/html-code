@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS Styles Demo: Inline, Internal, External</title>
+
+    <!-- External CSS simulation (usually in separate file) -->
+    <style>
+        /* External style */
+        /* Selector: h1 (element) */
+        h1 {
+            color: blue;
+        }
+
+        /* Selector: p.external */
+        p.external {
+            font-style: italic;
+        }
+
+        /* Selector: #footer */
+        #footer {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Internal CSS -->
+    <style>
+        /* Internal style */
+        /* Selector: h2 (element) */
+        h2 {
+            color: green;
+        }
+
+        /* Selector: p.internal */
+        p.internal {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- External style applied (h1 element) -->
+    <h1>Welcome to CSS Styles Demo</h1>
+
+    <!-- Internal style applied (h2 element) -->
+    <h2>Internal CSS Styling</h2>
+
+    <!-- Paragraph with external style class -->
+    <p class="external">This paragraph is styled with <em>external CSS</em> (italic font).</p>
+
+    <!-- Paragraph with internal style class -->
+    <p class="internal">This paragraph is styled with <strong>internal CSS</strong> (bold font).</p>
+
+    <!-- Inline style -->
+    <p style="color: red; font-size: 18px;">
+        This paragraph is styled with <strong>inline CSS</strong> (red color, font size 18px).
+    </p>
+
+    <!-- Footer with external style -->
+    <div id="footer">
+        This footer is styled with external CSS using an ID selector.
+    </div>
+
+</body>
+</html>
