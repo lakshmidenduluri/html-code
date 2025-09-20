@@ -1,41 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Table Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #16a085;
+        }
+        ul, ol {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 5px;
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
+    <h1>Working with Lists in HTML</h1>
 
-    <h1>HTML Table Example</h1>
-    <p>This table demonstrates the use of <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code> tags and the attributes <code>border</code>, <code>rowspan</code>, and <code>colspan</code>.</p>
+    <p>HTML provides two types of lists: <strong>unordered lists</strong> and <strong>ordered lists</strong>.</p>
 
-    <table border="2" cellpadding="10" cellspacing="0">
-        <tr>
-            <th rowspan="2">Name</th>
-            <th colspan="2">Contact Information</th>
-            <th rowspan="2">City</th>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <th>Phone</th>
-        </tr>
-        <tr>
-            <td>Devi</td>
-            <td>devi@gmail.com</td>
-            <td>123-456-7890</td>
-            <td>Rajamundry</td>
-        </tr>
-        <tr>
-            <td>Maha</td>
-            <td>maha@gmail.com</td>
-            <td>987-654-3210</td>
-            <td>Rajampalem</td>
-        </tr>
-        <tr>
-            <td>Manasa</td>
-            <td colspan="2">manasa@gmail.com (No phone)</td>
-            <td>Kovvur</td>
-        </tr>
-    </table>
+    <h2>Unordered List</h2>
+    <p>An unordered list is a collection of items that have no particular order. The list items are typically displayed with bullets.</p>
+    <p>Example:</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+  &lt;li&gt;Orange&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p>Result:</p>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
 
+    <h2>Ordered List</h2>
+    <p>An ordered list is a collection of items where the order matters. Each item is numbered by default.</p>
+    <p>Example:</p>
+    <pre><code>&lt;ol&gt;
+  &lt;li&gt;First&lt;/li&gt;
+  &lt;li&gt;Second&lt;/li&gt;
+  &lt;li&gt;Third&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    <p>Result:</p>
+    <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ol>
+
+    <h2>Nested Lists</h2>
+    <p>You can also create nested lists, meaning a list inside another list. Here's an example of a nested unordered list:</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Fruits
+    &lt;ul&gt;
+      &lt;li&gt;Apple&lt;/li&gt;
+      &lt;li&gt;Banana&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vegetables
+    &lt;ul&gt;
+      &lt;li&gt;Carrot&lt;/li&gt;
+      &lt;li&gt;Broccoli&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p>Result:</p>
+    <ul>
+        <li>Fruits
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+            </ul>
+        </li>
+        <li>Vegetables
+            <ul>
+                <li>Carrot</li>
+                <li>Broccoli</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>List with Custom Bullet Points</h2>
+    <p>You can customize the bullets in unordered lists using the <code>list-style-type</code> CSS property.</p>
+    <pre><code>ul {
+    list-style-type: square;
+}</code></pre>
+    <p>Example:</p>
+    <ul style="list-style-type: square;">
+        <li>Square Bullet 1</li>
+        <li>Square Bullet 2</li>
+        <li>Square Bullet 3</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>HTML lists are a great way to present items in a structured format, either in an unordered way (with bullets) or in an ordered sequence (with numbers). You can also nest lists to create more complex structures.</p>
 </body>
 </html>
+
