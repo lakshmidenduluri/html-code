@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Background Image Halfway Down</title>
+<style>
+  body {
+    margin: 0;
+    height: 200vh; 
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=300&q=80') no-repeat center / contain;
+    transform: translate(-50%, -50%) rotateX(15deg);
+    pointer-events: none;
+    z-index: -1;
+  }
+</style>
+</head>
+<body>
+  <h1>Scroll down and see the fixed tilted background image</h1>
+  <p>Keep scrolling to see that the image stays fixed halfway down the page.</p>
+</body>
+</html>
