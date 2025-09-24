@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Output Methods</title>
+  <style>
+    #outputDiv {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #333;
+      width: 300px;
+    }
+  </style>
+  <script>
+    document.write("1. Output using document.write<br>");
+
+    function showAlert() {
+      alert("2. Output using alert()");
+    }
+
+    function showConsole() {
+      console.log("3. Output using console.log()");
+    }
+
+    function showInnerHTML() {
+      document.getElementById("outputDiv").innerHTML = "4. Output using innerHTML";
+    }
+  </script>
+</head>
+<body>
+
+  <button onclick="showAlert()">Show alert()</button>
+  <button onclick="showConsole()">Show console.log()</button>
+  <button onclick="showInnerHTML()">Show innerHTML</button>
+
+  <div id="outputDiv"></div>
+
+</body>
+</html>
