@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Looping Through Object Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #eef2f3;
+      text-align: center;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #222;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Print Object Data Using Loops</h1>
+
+  <button onclick="useForIn()">For-In Loop</button>
+  <button onclick="useForEach()">forEach Loop</button>
+  <button onclick="useForOf()">For-Of Loop</button>
+
+  <div id="output"></div>
+
+  <script>
+    const person = {
+      name: "Emma",
+      age: 28,
+      city: "New York"
+    };
+
+    function useForIn() {
+      let result = "Using for-in loop:\n";
+      for (let key in person) {
+        result += `${key}: ${person[key]}\n`;
+      }
+      document.getElementById("output").textContent = result;
+    }
+
+    function useForEach() {
+      let result = "Using forEach loop on Object.entries:\n";
+      Object.entries(person).forEach(([key, value]) => {
+        result += `${key}: ${value}\n`;
+      });
+      document.getElementById("output").textContent = result;
+    }
+
+    function useForOf() {
+      let result = "Using for-of loop on Object.keys:\n";
+      for (const key of Object.keys(person)) {
+        result += `${key}: ${person[key]}\n`;
+      }
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+
+</body>
+</html>

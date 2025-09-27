@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Denomination Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f7f7f7;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 180px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e7e34;
+    }
+    #result {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bank Amount Denomination</h1>
+  <input type="number" id="amountInput" placeholder="Enter deposited amount" min="0" />
+  <button onclick="calculateDenomination()">Calculate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateDenomination() {
+      let amount = parseInt(document.getElementById("amountInput").value);
+      if (isNaN(amount) || amount < 0) {
+        document.getElementById("result").textContent = "Please enter a valid non-negative amount.";
+        return;
+      }
+      if (amount === 0) {
+        document.getElementById("result").textContent = "Amount is zero, no denominations needed.";
+        return;
+      }
+
+      const denominations = [100, 50, 20, 10, 5, 2, 1];
+      let resultText = `Amount: Rs. ${amount}\nDenominations:\n`;
+
+      denominations.forEach(denom => {
+        let count = Math.floor(amount / denom);
+        if (count > 0) {
+          resultText += `${count} - ${denom}'s\n`;
+          amount = amount % denom;
+        }
+      });
+
+      document.getElementById("result").textContent = resultText.trim();
+    }
+  </script>
+
+</body>
+</html>

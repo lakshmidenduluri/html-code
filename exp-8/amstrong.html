@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Armstrong Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 150px;
+            margin: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Armstrong Number Checker</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="checkArmstrong()">Check</button>
+
+    <div id="result"></div>
+
+    <script>
+        function checkArmstrong() {
+            const num = document.getElementById("numberInput").value.trim();
+            const number = Number(num);
+            if (!num || isNaN(number) || number < 0) {
+                document.getElementById("result").textContent = "Please enter a valid non-negative number.";
+                return;
+            }
+
+            const digits = num.split('');
+            const n = digits.length;
+
+            let sum = 0;
+            for (let digit of digits) {
+                sum += Math.pow(Number(digit), n);
+            }
+
+            const resultText = (sum === number) ? `${number} is an Armstrong number.` : `${number} is NOT an Armstrong number.`;
+            document.getElementById("result").textContent = resultText;
+        }
+    </script>
+
+</body>
+</html>

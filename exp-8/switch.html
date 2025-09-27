@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display Week Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter a number (1-7)</h1>
+    <input type="number" id="dayNumber" min="1" max="7" placeholder="Day number" />
+    <button onclick="showWeekDay()">Show Week Day</button>
+
+    <div id="result"></div>
+
+    <script>
+        function showWeekDay() {
+            const num = parseInt(document.getElementById("dayNumber").value);
+            let dayName = "";
+
+            switch(num) {
+                case 1:
+                    dayName = "Sunday";
+                    break;
+                case 2:
+                    dayName = "Monday";
+                    break;
+                case 3:
+                    dayName = "Tuesday";
+                    break;
+                case 4:
+                    dayName = "Wednesday";
+                    break;
+                case 5:
+                    dayName = "Thursday";
+                    break;
+                case 6:
+                    dayName = "Friday";
+                    break;
+                case 7:
+                    dayName = "Saturday";
+                    break;
+                default:
+                    dayName = "Invalid input! Please enter a number between 1 and 7.";
+            }
+
+            document.getElementById("result").textContent = dayName;
+        }
+    </script>
+
+</body>
+</html>
