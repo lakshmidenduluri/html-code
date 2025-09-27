@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Object Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        #info {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Document Object Demo</h1>
+    <p>Click the button below to view document information.</p>
+    
+    <button onclick="showDocumentInfo()">Show Document Info</button>
+
+    <div id="info"></div>
+
+    <script>
+        function showDocumentInfo() {
+            // Accessing document object properties
+            var title = document.title;
+            var url = document.URL;
+            var lastModified = document.lastModified;
+
+            // Using innerHTML with getElementById (a document method)
+            document.getElementById("info").innerHTML = `
+                <strong>Document Title:</strong> ${title} <br>
+                <strong>Page URL:</strong> ${url} <br>
+                <strong>Last Modified:</strong> ${lastModified}
+            `;
+        }
+
+        // You can also write to the document directly (not recommended for dynamic sites)
+        // document.write("This is written using document.write()");
+    </script>
+
+</body>
+</html>
