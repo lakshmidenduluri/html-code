@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Array Object Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f7f7f7;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        button {
+            margin: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+        }
+        button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Object Properties & Methods Demo</h1>
+
+    <button id="showLength">Show Array Length</button>
+    <button id="addElement">Add Element (push)</button>
+    <button id="removeLast">Remove Last Element (pop)</button>
+    <button id="removeFirst">Remove First Element (shift)</button>
+    <button id="addFirst">Add Element at Start (unshift)</button>
+    <button id="showJoined">Show Joined Array</button>
+
+    <div id="output"></div>
+
+    <script>
+        const arr = ["Apple", "Banana", "Cherry"];
+        const output = document.getElementById("output");
+
+        document.getElementById("showLength").onclick = () => {
+            output.textContent = `Array: [${arr.join(", ")}]\nLength: ${arr.length}`;
+        };
+
+        document.getElementById("addElement").onclick = () => {
+            arr.push("Dragonfruit");
+            output.textContent = `Added "Dragonfruit".\nArray now: [${arr.join(", ")}]`;
+        };
+
+        document.getElementById("removeLast").onclick = () => {
+            const removed = arr.pop();
+            output.textContent = `Removed last element "${removed}".\nArray now: [${arr.join(", ")}]`;
+        };
+
+        document.getElementById("removeFirst").onclick = () => {
+            const removed = arr.shift();
+            output.textContent = `Removed first element "${removed}".\nArray now: [${arr.join(", ")}]`;
+        };
+
+        document.getElementById("addFirst").onclick = () => {
+            arr.unshift("Apricot");
+            output.textContent = `Added "Apricot" at start.\nArray now: [${arr.join(", ")}]`;
+        };
+
+        document.getElementById("showJoined").onclick = () => {
+            output.textContent = `Array joined by " - ": ${arr.join(" - ")}`;
+        };
+    </script>
+
+</body>
+</html>
