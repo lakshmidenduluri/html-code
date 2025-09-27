@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 450px;
+      margin: 40px auto;
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .error {
+      color: #d93025;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 7px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #success {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form id="regForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" />
+    <div id="nameError" class="error"></div>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id="mobile" name="mobile" placeholder="Enter 10-digit mobile number" maxlength="10" />
+    <div id="mobileError" class="error"></div>
+
+    <label for="email">E-mail:</label>
+    <input type="text" id="email" name="email" placeholder="Enter your email" />
+    <div id="emailError" class="error"></div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="success"></div>
+
+  <script>
+    function validateForm() {
+      // Clear previous errors & success
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('mobileError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('success').textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      let valid = true;
+
+      // Name validation: starts with alphabet, followed by alphanumeric, length >= 6
+      const nameRegex = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+      if (!nameRegex.test(name)) {
+        document.getElementById('nameError').textContent = 'Name must start with an alphabet, followed by alphanumeric characters and be at least 6 characters long.';
+        valid = false;
+      }
+
+      // Mobile validation: exactly 10 digits
+      const mobileRegex = /^[0-9]{10}$/;
+      if (!mobileRegex.test(mobile)) {
+        document.getElementById('mobileError').textContent = 'Mobile number must be exactly 10 digits.';
+        valid = false;
+      }
+
+      // Email validation: basic format xxxxxxx@xxxxxx.xxx
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        valid = false;
+      }
+
+      if (valid) {
+        document.getElementById('success').textContent = 'Registration successful!';
+      }
+
+      return false; // Prevent form submission for demonstration
+    }
+  </script>
+
+</body>
+</html>

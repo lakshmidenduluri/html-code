@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Number Functions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #fafafa;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 180px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      text-align: left;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Number Utilities</h1>
+  <input type="number" id="numberInput" placeholder="Enter a positive integer" min="0" />
+  <br/>
+  <button onclick="displayFactorial()">Factorial</button>
+  <button onclick="displayFibonacci()">Fibonacci Series</button>
+  <button onclick="displayPrimes()">Prime Numbers</button>
+  <button onclick="checkPalindrome()">Palindrome Check</button>
+
+  <div id="result"></div>
+
+  <script>
+    function displayFactorial() {
+      const num = parseInt(document.getElementById("numberInput").value);
+      if (!isValidNumber(num)) return;
+
+      let fact = 1;
+      for(let i = 2; i <= num; i++) {
+        fact *= i;
+      }
+
+      document.getElementById("result").textContent = `Factorial of ${num} is: ${fact}`;
+    }
+
+    function displayFibonacci() {
+      const num = parseInt(document.getElementById("numberInput").value);
+      if (!isValidNumber(num)) return;
+
+      let fib = [0, 1];
+      if (num === 0) fib = [0];
+      else if (num === 1) fib = [0,1];
+
+      let next = fib[fib.length-1] + fib[fib.length-2];
+      while(next <= num) {
+        fib.push(next);
+        next = fib[fib.length-1] + fib[fib.length-2];
+      }
+
+      document.getElementById("result").textContent = `Fibonacci series up to ${num}:\n${fib.join(", ")}`;
+    }
+
+    function displayPrimes() {
+      const num = parseInt(document.getElementById("numberInput").value);
+      if (!isValidNumber(num)) return;
+
+      let primes = [];
+      for(let i = 2; i <= num; i++) {
+        if (isPrime(i)) primes.push(i);
+      }
+
+      document.getElementById("result").textContent = `Prime numbers up to ${num}:\n${primes.join(", ") || "None"}`;
+    }
+
+    function checkPalindrome() {
+      const numStr = document.getElementById("numberInput").value.trim();
+      if (!numStr || isNaN(Number(numStr)) || Number(numStr) < 0) {
+        alert("Please enter a valid non-negative integer.");
+        return;
+      }
+
+      const reversed = numStr.split('').reverse().join('');
+      const isPal = (numStr === reversed);
+
+      document.getElementById("result").textContent = `${numStr} is${isPal ? "" : " NOT"} a palindrome.`;
+    }
+
+    function isPrime(n) {
+      if (n < 2) return false;
+      for(let i = 2; i <= Math.sqrt(n); i++) {
+        if(n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function isValidNumber(num) {
+      if (isNaN(num) || num < 0) {
+        alert("Please enter a valid non-negative integer.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>
