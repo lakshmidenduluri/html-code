@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Math Object Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        #output {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            white-space: pre-wrap;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            margin: 8px;
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Math Object Properties & Methods Demo</h1>
+
+    <button id="showConstants">Show Constants</button>
+    <button id="randomInt">Generate Random Integer (1-100)</button>
+    <button id="roundNumber">Round Number (7.7)</button>
+    <button id="powerCalc">Calculate Power (3^4)</button>
+    <button id="sqrtCalc">Calculate Square Root (64)</button>
+    <button id="trigCalc">Calculate Cosine (60°)</button>
+
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById("output");
+
+        document.getElementById("showConstants").onclick = () => {
+            output.textContent = 
+`Math.PI: ${Math.PI}
+Math.E: ${Math.E}`;
+        };
+
+        document.getElementById("randomInt").onclick = () => {
+            const rand = Math.floor(Math.random() * 100) + 1;
+            output.textContent = `Random integer between 1 and 100: ${rand}`;
+        };
+
+        document.getElementById("roundNumber").onclick = () => {
+            const num = 7.7;
+            const rounded = Math.round(num);
+            output.textContent = `Number: ${num}\nRounded: ${rounded}`;
+        };
+
+        document.getElementById("powerCalc").onclick = () => {
+            const base = 3;
+            const exponent = 4;
+            const result = Math.pow(base, exponent);
+            output.textContent = `${base} raised to the power of ${exponent} is ${result}`;
+        };
+
+        document.getElementById("sqrtCalc").onclick = () => {
+            const num = 64;
+            const result = Math.sqrt(num);
+            output.textContent = `Square root of ${num} is ${result}`;
+        };
+
+        document.getElementById("trigCalc").onclick = () => {
+            const degrees = 60;
+            const radians = degrees * (Math.PI / 180);
+            const cosine = Math.cos(radians);
+            output.textContent = `Cosine of ${degrees}° is ${cosine.toFixed(4)}`;
+        };
+    </script>
+
+</body>
+</html>

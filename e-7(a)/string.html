@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>String Object Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        #output {
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        button {
+            margin: 8px;
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>String Object Properties & Methods Demo</h1>
+
+    <button id="showLength">Show Length</button>
+    <button id="toUpperCase">Convert to Uppercase</button>
+    <button id="toLowerCase">Convert to Lowercase</button>
+    <button id="charAt">Character at Index 5</button>
+    <button id="indexOf">Index of "world"</button>
+    <button id="sliceString">Slice (7, 12)</button>
+    <button id="replaceString">Replace "world" with "JavaScript"</button>
+    <button id="splitString">Split by space</button>
+
+    <div id="output"></div>
+
+    <script>
+        const str = "Hello world! Welcome to the String object demo.";
+        const output = document.getElementById("output");
+
+        document.getElementById("showLength").onclick = () => {
+            output.textContent = `String: "${str}"\nLength: ${str.length}`;
+        };
+
+        document.getElementById("toUpperCase").onclick = () => {
+            output.textContent = `Uppercase: "${str.toUpperCase()}"`;
+        };
+
+        document.getElementById("toLowerCase").onclick = () => {
+            output.textContent = `Lowercase: "${str.toLowerCase()}"`;
+        };
+
+        document.getElementById("charAt").onclick = () => {
+            output.textContent = `Character at index 5: "${str.charAt(5)}"`;
+        };
+
+        document.getElementById("indexOf").onclick = () => {
+            output.textContent = `Index of "world": ${str.indexOf("world")}`;
+        };
+
+        document.getElementById("sliceString").onclick = () => {
+            output.textContent = `Slice from index 7 to 12: "${str.slice(7, 12)}"`;
+        };
+
+        document.getElementById("replaceString").onclick = () => {
+            output.textContent = `Replace "world" with "JavaScript": "${str.replace("world", "JavaScript")}"`;
+        };
+
+        document.getElementById("splitString").onclick = () => {
+            const arr = str.split(" ");
+            output.textContent = `Split by space:\n${arr.join("\n")}`;
+        };
+    </script>
+
+</body>
+</html>
